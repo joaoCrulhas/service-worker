@@ -1,0 +1,30 @@
+<html>
+<head>
+    <!--Install script included by the customer to install your service worker-->
+    <script>
+        if (!!navigator['serviceWorker']) {
+            const { controller } = navigator['serviceWorker'];
+            if (!controller) {
+                navigator['serviceWorker'].register('delaySw.js', { scope: '/' })
+            }
+        }
+    </script>
+
+    <!--Heavy Facebook tracking script that needs a lot of bandwidth-->
+    <script src="https://www.facebook.com/tr"></script>
+
+    <!--Critical scripts-->
+    <script src="/js/lightScript1.js"></script>
+    <script src="/js/lightScript2.js"></script>
+    <script src="/js/lightScript3.js"></script>
+
+    <!--Critical styles-->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    ...
+    <script src="./delaySw.js"></script>
+</head>
+<body>
+...
+</body>
+</html>
